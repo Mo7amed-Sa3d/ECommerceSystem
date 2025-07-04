@@ -11,6 +11,7 @@ public class Order {
     private double productsPrice;
     private double shippingFee;
     private double totalAmount;
+
     Order(Map<Product, Integer> orderItems) {
         this.orderItems = orderItems;
         validateProducts();
@@ -21,17 +22,18 @@ public class Order {
         this.totalAmount = productsPrice + shippingFee;
     }
 
-    private void validateProducts(){
+    private void validateProducts() {
         for (Map.Entry<Product, Integer> orderItem : orderItems.entrySet()) {
             Product product = orderItem.getKey();
             int requestedQuantity = orderItem.getValue();
-            if(product.isExpired())
+            if (product.isExpired())
                 throw new IllegalStateException(product.getName() + " is expired\n");
-            if(product.getStockQuantity() < requestedQuantity)
+            if (product.getStockQuantity() < requestedQuantity)
                 throw new IllegalStateException("There is no enough " + product.getName() + " in stock\n");
         }
 
     }
+
     private void extractShippableProducts() {
         for (Map.Entry<Product, Integer> orderItem : orderItems.entrySet()) {
             Product product = orderItem.getKey();
@@ -68,37 +70,54 @@ public class Order {
         ShippingServices newShipment = new ShippingServices(this.itemsToBeShipped);
         return newShipment.makeShipment();
     }
-    public void completeOrder(){
+
+    public void completeOrder() {
         for (Map.Entry<Product, Integer> orderItem : orderItems.entrySet()) {
             Product product = orderItem.getKey();
             int quantity = orderItem.getValue();
             product.reduceQuanitiy(quantity);
         }
-
     }
+
     public void printOrderSummary() {
-        /// Shipment notice
-        System.out.print("** Shipment notice **\n");
+        // ** Shipment notice **
+        System.out.println("** Shipment notice **");
+        System.out.printf("%-5s %-20s %10s%n", "Qty", "Product", "Weight (g)");
+        System.out.println("---------------------------------------------");
+
         for (Map.Entry<Product, Integer> orderItem : orderItems.entrySet()) {
             Product product = orderItem.getKey();
             if (product.requiresShipping()) {
                 int quantity = orderItem.getValue();
-                System.out.printf("%dx %s%t%t%.2fg\n", quantity, product.getName(), product.getWeight());
+                System.out.printf("%-5d %-20s %10.2f%n",
+                        quantity,
+                        product.getName(),
+                        product.getWeight()
+                );
             }
-            System.out.printf("Total package weight %.2f kg\n", this.totalWeight / 1000);
         }
-        System.out.println();
-        ///** Checkout receipt **
-        System.out.println("** Checkout receipt **\n");
+        System.out.printf("%nTotal package weight: %.2f kg%n%n", this.totalWeight / 1000.0);
+
+        // ** Checkout receipt **
+        System.out.println("** Checkout receipt **");
+        System.out.printf("%-5s %-20s %10s%n", "Qty", "Product", "Unit Price");
+        System.out.println("---------------------------------------------");
+
         for (Map.Entry<Product, Integer> orderItem : orderItems.entrySet()) {
             Product product = orderItem.getKey();
             int quantity = orderItem.getValue();
-            System.out.printf("%dx %s%t%t%.2f LE\n", quantity, product.getName(), product.getPrice());
+            System.out.printf("%-5d %-20s %10.2f%n",
+                    quantity,
+                    product.getName(),
+                    product.getPrice()
+            );
         }
-        System.out.println("--------------------");
-        System.out.printf("Subtotal%t%t%.2f\n", this.productsPrice);
-        System.out.printf("Shipping%t%t%.2f\n", this.shippingFee);
-        System.out.printf("Amount%t%t%.2f\n", this.productsPrice + shippingFee);
+
+        System.out.println("---------------------------------------------");
+        System.out.printf("%-25s %10.2f%n", "Subtotal", this.productsPrice);
+        System.out.printf("%-25s %10.2f%n", "Shipping", this.shippingFee);
+        System.out.printf("%-25s %10.2f%n", "Total Amount", this.productsPrice + this.shippingFee);
+        System.out.println();
 
     }
 

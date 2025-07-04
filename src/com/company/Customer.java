@@ -30,6 +30,7 @@ public class Customer {
         if(order.getTotalAmount() > this.balance)
             throw new IllegalStateException("Insufficient balance");
         order.completeOrder();
+        order.printOrderSummary();
         this.pay(order.getTotalAmount());
         System.out.println(this.name + " current balance " + this.balance + " LE");
     }
