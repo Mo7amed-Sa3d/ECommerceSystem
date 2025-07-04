@@ -12,17 +12,26 @@ Test #1 - A single customer named Mohamed is using the system, and he made an or
 
 ![Preview](Test1.png)
 
+
 Test #2 - Two customers Mohamed and Ahmed are using the system simultaneously and both of them made orders successfully
+
 
 ![Preview](Test2.png)
 
-Test #3 - A customer is trying to do checkout while the cart is empty, an error showed with "Cart is Empty" message
+
+Test #3 - A customer is trying to do **checkout while the cart is empty**, an error showed with "Cart is Empty" message
 
 
 ![Preview](Test3.png)
 
-Test #4 - A customer is trying to make an order, but he does not have enough balance, an error showed with "Insufficient balance" message.
+
+Test #4 - A customer is trying to make an order, but he **does not have enough balance**, an error showed with "Insufficient balance" message.
+
+
 ![Preview](Test4.png)
 
-Test #5 - A customer is trying to buy an on out-of-stock product, an error showed with "TV Product is unavailable" message.;
+
+Test #5 - A customer is **trying to buy an on out-of-stock** product, an error showed with "TV Product is unavailable" message.;
+
+
 ![Preview](Test5.png)
