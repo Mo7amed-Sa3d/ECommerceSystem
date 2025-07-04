@@ -1,2 +1,2 @@
 UML Class Diagram
-![Preview](/ECommerceClassUML.pdf)
+[![Preview](ECommerceClassUML.png)](ECommerceClassUML.pdf)
