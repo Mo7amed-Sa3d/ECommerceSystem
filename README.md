@@ -1,1 +1,1 @@
-E-Commerce System documentation
+E-Commerce System documentation is included as a PDF file
