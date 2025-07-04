@@ -1,1 +1,2 @@
-E-Commerce System documentation is included as a PDF file
+UML Class Diagram
+![Preview](./ECommerceClassUML.pdf)
