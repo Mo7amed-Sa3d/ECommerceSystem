@@ -15,7 +15,7 @@ public class Main {
         Product scratchCard = new Product("Scratch Card", 20, 200,
                 new NeverExpires(), new NotShippable());
 
-        Customer Mohamed = new Customer("Mohamed", 30_000);
+        Customer Mohamed = new Customer("Mohamed", 50_000);
 
         Mohamed.addToCart(tv, 1);
         Mohamed.addToCart(cheese, 2);

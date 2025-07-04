@@ -9,7 +9,8 @@ public class Cart {
     Cart(){}
     public void addItem(Product product, int quantity) {
         if (!product.isAvailable(quantity)) {
-            throw new IllegalStateException("Product unavailable");
+            String message = product.getName() +  " Product is unavailable";
+            throw new IllegalStateException(message);
         }
         items.merge(product, quantity, Integer::sum);
     }
