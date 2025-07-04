@@ -24,3 +24,32 @@ public class Main {
 
     }
 }
+
+/*
+Console Output:
+
+
+** Shipment notice **
+Qty   Product              Weight (g)
+---------------------------------------------
+1     TV                      5000.00
+2     Cheese                   250.00
+
+Total package weight: 5.50 kg
+
+** Checkout receipt **
+Qty   Product              Unit Price
+---------------------------------------------
+2     Scratch Card              20.00
+1     TV                      5000.00
+2     Cheese                    70.00
+---------------------------------------------
+Subtotal                     5180.00
+Shipping                      157.50
+Total Amount                 5337.50
+
+Mohamed current balance 44662.5 LE
+
+
+
+ */
