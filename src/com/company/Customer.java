@@ -32,7 +32,7 @@ public class Customer {
         order.completeOrder();
         order.printOrderSummary();
         this.pay(order.getTotalAmount());
-        System.out.println(this.name + " current balance " + this.balance + " LE");
+        System.out.println(this.name + " current balance " + this.balance + " LE\n");
     }
 
     public UUID getId() { return id; }

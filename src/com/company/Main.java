@@ -9,7 +9,8 @@ public class Main {
                 new NeverExpires(), new ShippableProduct(5000));
 
         Product cheese = new Product("Cheese", 70, 10,
-                new ExpiresOnDate(LocalDate.of(2026, 7, 15)), new ShippableProduct(250));
+                new ExpiresOnDate(LocalDate.of(2026, 7, 15)),
+                new ShippableProduct(250));
 
         Product scratchCard = new Product("Scratch Card", 20, 200,
                 new NeverExpires(), new NotShippable());
